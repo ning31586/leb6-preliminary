@@ -1,0 +1,77 @@
+<template>
+    <div>
+        <p>
+            HP Player {{randomDamage(0, 4)}}
+            {{player[randomDamage(0, 4)].name}}
+        </p> +รูป
+
+        <hr />
+            name = {{aPlayer.name}}
+            hp={{aPlayer.hp}}
+            image={{aPlayer.image}}
+        <hr />
+
+
+        <p>HP Monster 150</p> +รูป
+
+
+
+        <button @click="start()">Start</button>
+        <button @click="attack()">Attack</button>
+    </div>   
+
+<script>
+
+import Game from './components/Game'
+
+export default{
+    data:function(){
+    },
+        
+        
+        return{
+            aPlayer:{name:'',hp:0,image:''}
+            //ชื่อ player[1].name
+            Player: [{neme:'Shirokuma',hp:110,image:'.img/11.jpg'},
+            {neme:'Penguin',hp:105, image:'img/12.jpg'},
+            {neme:'Tonkatsu ',hp:100,image:'img/13.jpg'},
+            {neme:'Neko',hp:95, image:'img/14.jpg'},
+            {neme:'Tapioca',hp:90, image:'img/15.jpg'}
+            ],
+
+            Monster :[{neme:'Zassou',hp:310, image:''},
+            {neme:'Penguin',hp:305, image:''},
+            {neme:'Tonkatsu ',hp:300, image:''},
+            {neme:'Neko',hp:295, image:''},
+            {neme:'Tapioca',hp:290, image:''}
+            ],
+        }
+    
+    methods:{
+        randomDamage: function(min, max) {             
+            return Math.max(Math.floor(Math.random() * max) + 1, min);    },
+
+            start:function(){
+                //1. random Player 1-5 -->ชื่อ hp รูป
+                this.aPlayer=this.Player[this.randomDamage(0, 4)]
+
+                //2. random Monster 1-5
+        
+            },
+
+
+            attack:function(){
+                //1.player --> monster
+                //2.player <-- monster
+                //3.player.HP <=0 -->?
+                //4.monster.HP <=0 -->?
+                //5.END GAME
+
+            }
+    }
+
+}
+
+
+
+</script>
